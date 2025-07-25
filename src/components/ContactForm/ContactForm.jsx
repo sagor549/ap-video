@@ -6,7 +6,7 @@ const ContactForm = () => {
     <div className="contact-form">
       <div className="contact-form-row">
         <div className="contact-form-row-copy-item">
-          <p className="primary sm">Let’s create together</p>
+          <p className="primary sm">Let’s Make Ads That Hit</p>
         </div>
         <div className="contact-form-row-copy-item">
           <p className="primary sm">(Scene — 07)</p>
@@ -22,14 +22,15 @@ const ContactForm = () => {
             <h3>Start a Conversation</h3>
 
             <p>
-              Have a story in mind? Let’s bring it to life. I’d love to hear
-              what you’re working on and explore how we can collaborate.
+              Got a product that needs killer short-form ads? 
+              Let’s talk about creating scroll-stopping content that hooks fast 
+              and drives results.
             </p>
           </div>
 
           <div className="contact-form-availability">
-            <p className="primary sm">Available for Freelance</p>
-            <p className="primary sm">Clients worldwide</p>
+            <p className="primary sm">Available for Brands & Agencies</p>
+            <p className="primary sm">Working Worldwide</p>
           </div>
         </div>
 
@@ -43,7 +44,7 @@ const ContactForm = () => {
           </div>
 
           <div className="form-item">
-            <textarea type="text" rows={6} placeholder="Message" />
+            <textarea type="text" rows={6} placeholder="Tell us about your project" />
           </div>
 
           <div className="form-item">

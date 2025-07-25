@@ -1,14 +1,30 @@
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+.demo {
+  background-color:black;
+}
+
+/* Hero Section */
 .hero {
   position: relative;
   width: 100vw;
   height: 100svh;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   padding: 2em;
 }
 
-.hero-img {
+.hero-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,56 +32,151 @@
   height: 100%;
 }
 
-.hero-header {
-  position: relative;
+.hero-video video {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero-header h1 {
-  color: var(--bg);
-  line-height: 1;
-}
-
-.sticky-titles {
+.hero-content {
   position: relative;
-  width: 100vw;
-  height: 100svh;
-  overflow: hidden;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
   padding: 2em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  margin-top: 60px; /* Added space below navbar */
 }
 
-.sticky-titles-nav,
-.sticky-titles-footer {
-  width: 100%;
+.hero-content h1 {
+  font-size: 5vw;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 5.4vw;
+  color: var(--bg);
+  margin-bottom: 1rem;
+  font-family: "Messina Sans";
+}
+
+.hero-text {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 1em;
 }
 
-.sticky-titles-nav {
-  border-bottom: 1px dashed var(--fg);
-  padding-bottom: 0.5em;
+.hero-line {
+  font-family: "Messina Sans";
+  font-size: 2vw;
+  font-weight: 600;
+  color: var(--bg);
+  letter-spacing: 0.02em;
 }
 
-.sticky-titles-footer {
-  border-top: 1px dashed var(--fg);
-  padding-top: 0.5em;
+.hero-highlight {
+  font-family: "Rader";
+  font-size: 3vw;
+  font-weight: 600;
+  color: #FFD700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-.sticky-titles h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.hero-bottom-text {
+  margin-top: 2em;
+}
+
+.hero-bottom-text p {
+  font-family: "Messina Sans";
+  font-size: 1.2vw;
+  font-weight: 600;
+  color: var(--bg);
+  letter-spacing: 0.02em;
+}
+
+/* Button Styles */
+.cta-button {
+  display: inline-block;
+  padding: 1.2em 2.8em;
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 0;
+  text-decoration: none;
+  font-family: "Messina Sans Mono";
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 1em;
+  transition: all 0.3s ease;
+  border: 1px solid var(--bg);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--fg);
+}
+
+.cta-button:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.cta-button.secondary:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.see-all {
+  margin-top: 4em;
+}
+
+/* Results Section */
+.results-section {
+  width: 100%;
+  padding: 6em 2em 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  will-change: transform, opacity;
+  background-color:#0A0A0A;
 }
 
+.results-section .small-text {
+  font-family: "Messina Sans";
+  font-size: 1.8vw;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 1em;
+}
+
+.results-section h3 {
+  font-size: 6vw;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  font-family: "Messina Sans";
+}
+
+/* Reviews Section */
+.reviews-section {
+  padding: 4em 0;
+  background: var(--bg);
+}
+
+/* FIXED: Reviews thumbnail images */
+.reviews-section .review-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Work Showcase Section */
 .sticky-work-header {
   position: relative;
   width: 100vw;
@@ -76,24 +187,37 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
+  margin-top: 2em;
 }
 
 .sticky-work-header h1 {
-  opacity: 0.125;
+  opacity: 0.525;
   line-height: 1;
+  font-size: 8vw;
+  letter-spacing: 0.1em;
+  font-family: "Messina Sans";
+  z-index:2;
+  
 }
 
 .home-work {
   width: 100%;
-  padding: 8em 2em;
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:#222222;
+  z-index:10;
+   position: relative;
 }
 
 .home-work-list {
-  width: 40%;
-  margin: 0 auto;
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto 4em;
   display: flex;
   flex-direction: column;
-  gap: 8em;
+  gap: 6em;
 }
 
 .home-work-item {
@@ -102,58 +226,211 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 2em;
+  gap: 1.5em;
 }
 
-.hobbies {
+.home-work-item h3 {
+  font-family: "Messina Sans";
+}
+
+.home-work-item h4 {
+  font-family: "Messina Sans";
+}
+
+.work-item-video {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.work-item-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Services Section */
+.services {
   width: 100vw;
-  padding: 2em;
-  padding-bottom: 0;
+  padding: 4em 2em;
   display: flex;
-  gap: 1em;
+  gap: 1.5em;
+  justify-content: center;
+  background: var(--bg);
 }
 
-.hobby {
-  flex: 1;
+.service {
+  flex: 0 1 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   aspect-ratio: 1;
-  border: 1px dashed var(--fg);
-  border-radius: 1em;
+  border: 1px solid var(--fg);
+  padding: 1em;
 }
 
+.service h4 {
+  font-size: 2vw;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 2vw;
+  font-family: "Messina Sans";
+}
+
+/* Responsive Styles */
 @media (max-width: 1000px) {
   .hero,
-  .sticky-titles,
-  .sticky-work-header,
-  .hobbies {
-    padding: 1.25em;
+  .results-section,
+  .services,
+  .sticky-work-header {
+    padding: 1.5em;
   }
 
-  .sticky-titles h2 {
-    width: 90%;
+  .hero-content {
+    margin-top: 50px;
   }
 
-  .hobbies {
-    padding-bottom: 0;
+  .hero-content h1 {
+    font-size: 8vw;
+    line-height: 7vw;
+  }
+
+  .hero-line {
+    font-size: 3.5vw;
+  }
+
+  .hero-highlight {
+    font-size: 4.5vw;
+  }
+
+  .hero-bottom-text p {
+    font-size: 2.5vw;
+  }
+
+  .results-section .small-text {
+    font-size: 3.5vw;
+  }
+
+  .results-section h3 {
+    font-size: 8vw;
+  }
+
+  .services {
+    flex-wrap: wrap;
   }
 
   .home-work {
-    padding: 8em 1.25em;
+    padding: 4em 1.5em;
   }
 
   .home-work-list {
     width: 100%;
+    gap: 4em;
   }
 
-  .hobbies {
+  .work-item-video {
+    height: 350px;
+  }
+  
+  .service {
+    flex-basis: 200px;
+  }
+  
+  .service h4 {
+    font-size: 4vw;
+    line-height: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+   .hero-content {
+    padding: 1em;
+    margin-top: 40px;
+    gap: 1em;
+  }
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding: 1em;
     flex-direction: column;
-    gap: 1.25em;
   }
 
-  .hobby {
-    aspect-ratio: 5/3;
+  .hero-line {
+    font-size: 4vw;
+  }
+   .hero-content h1 {
+    font-size: 8vw;
+    line-height: 1.2;
+  }
+
+  .hero-highlight {
+   font-size: 5vw;
+    line-height: 1.3;
+  }
+
+  .hero-bottom-text p {
+    font-size: 3vw;
+  }
+
+  .results-section .small-text {
+    font-size: 4vw;
+  }
+
+  .results-section h3 {
+    font-size: 10vw;
+  }
+
+  .cta-button {
+    padding: 1em 2em;
+    font-size: 0.9rem;
+  }
+
+  .work-item-video {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    margin-top: 40px;
+  }
+  
+  .hero-content h1 {
+    font-size: 12vw;
+    line-height: 11vw;
+  }
+
+  .hero-line {
+    font-size: 5.5vw;
+  }
+
+  .hero-highlight {
+    font-size: 6.5vw;
+  }
+
+  .hero-bottom-text p {
+    font-size: 4vw;
+  }
+
+  .results-section .small-text {
+    font-size: 5vw;
+  }
+
+  .results-section h3 {
+    font-size: 12vw;
+  }
+
+  .service {
+    flex-basis: 150px;
+  }
+  
+  .service h4 {
+    font-size: 5vw;
+    line-height: 5vw;
+  }
+
+  .work-item-video {
+    height: 250px;
   }
 }

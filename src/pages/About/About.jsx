@@ -14,8 +14,8 @@ const About = () => {
     <ReactLenis root>
       <div className="page about">
         <section className="about-header">
-          <h1>Est</h1>
-          <h1>1997</h1>
+          <h1>About</h1>
+          <h1>Us</h1>
         </section>
 
         <section className="about-hero">
@@ -27,21 +27,21 @@ const About = () => {
         <section className="about-me-copy">
           <div className="about-me-copy-wrapper">
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              I'm Nico Palmer — a filmmaker drawn to human stories, quiet
-              moments, and the visual language of emotion. My work spans short
-              films, experimental pieces, and cinematic visuals.
+              We’re AP Agency — a Toronto-based video ad agency built for the
+              fast-paced digital world. Our focus? Ads that grab attention in
+              the first second and never let go.
             </AnimatedCopy>
 
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              For me, filmmaking isn’t just about images — it’s about what those
-              images make us feel. I believe in subtlety, texture, and honesty
-              in storytelling.
+              Nobody has time for 60-second commercials anymore — they scroll.
+              That’s why we craft short, punchy, high-converting videos designed
+              to stop thumbs and drive clicks.
             </AnimatedCopy>
 
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              Every project is a new collaboration, a new challenge, and a new
-              chance to create something meaningful. If it moves someone, even
-              for a second — it's done its job.
+              Each package delivers 3 unique short-form ads (12–16 seconds)
+              from one shoot — different hooks, captions, and scripts — all
+              engineered to deliver results.
             </AnimatedCopy>
           </div>
         </section>
@@ -51,40 +51,23 @@ const About = () => {
             <div className="services-banner">
               <img src="/about/services-banner.jpg" alt="" />
             </div>
-            <p className="primary">Crafted with Intention</p>
+            <p className="primary">Crafted for Impact</p>
           </div>
           <div className="services-col">
             <h4>
-              Every project is a chance to explore new visual language, push
-              creative boundaries, and tell stories that feel real. I approach
-              each film with care, precision, and purpose.
+              Every video is designed with intention — clear messaging, sharp
+              visuals, and storytelling that connects instantly.
             </h4>
 
             <div className="services-list">
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Filmmaking</h5>
+                  <h5>Short-form Video Ads</h5>
                 </div>
                 <div className="service-list-col">
                   <p>
-                    From short films to personal narratives, my work is driven
-                    by emotion and atmosphere. I handle direction,
-                    cinematography, and editing — crafting each piece with a
-                    filmmaker’s eye for mood, movement, and meaning.
-                  </p>
-                </div>
-              </div>
-
-              <div className="service-list-row">
-                <div className="service-list-col">
-                  <h5>Visual Storytelling</h5>
-                </div>
-                <div className="service-list-col">
-                  <p>
-                    I create visuals that speak — whether it’s a quiet moment or
-                    a bold idea. My work blends aesthetic choices with story
-                    clarity, making sure the emotional core always comes
-                    through.
+                    We create high-performing 12–16 second ads optimized for
+                    social platforms like TikTok, Meta, and YouTube Shorts.
                   </p>
                 </div>
               </div>
@@ -95,10 +78,21 @@ const About = () => {
                 </div>
                 <div className="service-list-col">
                   <p>
-                    From ideation to final cut, I guide the visual and narrative
-                    tone of every project. I bring a cohesive, cinematic vision
-                    that aligns story, style, and intention — grounded in
-                    authenticity.
+                    From scripting and storyboarding to shooting and editing,
+                    we ensure every creative element works toward engagement
+                    and conversions.
+                  </p>
+                </div>
+              </div>
+
+              <div className="service-list-row">
+                <div className="service-list-col">
+                  <h5>Post-Production</h5>
+                </div>
+                <div className="service-list-col">
+                  <p>
+                    We handle editing, color grading, sound design, and motion
+                    graphics to create polished, thumb-stopping content.
                   </p>
                 </div>
               </div>
@@ -115,7 +109,7 @@ const About = () => {
         <section className="fav-tools">
           <div className="fav-tools-header">
             <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-              Daily Stack
+              Our Stack
             </AnimatedCopy>
             <AnimatedCopy tag="h2" animateOnScroll={true} delay={0.25}>
               Favourite Tools
@@ -126,8 +120,9 @@ const About = () => {
               className="secondary"
               delay={0.5}
             >
-              My favorite stack includes Framer, Figma, and other cutting-edge
-              technologies to ensure seamless and dynamic designs.
+              From Blackmagic cameras to DaVinci Resolve, Premiere Pro, and
+              Frame.io — we use industry-leading tools to deliver high-quality
+              ads, fast.
             </AnimatedCopy>
           </div>
 

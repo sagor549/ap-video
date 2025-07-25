@@ -1,19 +1,19 @@
 const reviews = [
   {
     id: 1,
-    copy: "Working with you was a seamless experience. The visuals were stunning, and the storytelling felt incredibly personal.",
+    copy: "The team brought our concept to life with cinematic precision. Every shot felt like a masterpiece, and the final ad exceeded all expectations.",
     author: "Ava Reynolds",
     image: "/reviews/review-1.jpg",
   },
   {
     id: 2,
-    copy: "Your direction brought our brand to life. Every frame had purpose and emotion — couldn't be happier with the result.",
+    copy: "Their creative direction transformed our brand story into a powerful visual experience. The video campaign truly resonated with our audience.",
     author: "Liam Carter",
     image: "/reviews/review-2.jpg",
   },
   {
     id: 3,
-    copy: "Truly professional, creative, and detail-oriented. You made our vision clearer and better than we imagined.",
+    copy: "Professional, innovative, and visually stunning — they elevated our marketing strategy with content that speaks volumes.",
     author: "Sophie Nguyen",
     image: "/reviews/review-3.jpg",
   },

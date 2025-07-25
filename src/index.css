@@ -1,7 +1,7 @@
 @import "./fonts.css";
 
 :root {
-  --bg: #e3e3db;
+  
   --bg200: rgba(227, 227, 219, 0.25);
   --fg: #0f0f0f;
   --fg200: #1f1f1f;
@@ -39,7 +39,7 @@ h5 {
 h1 {
   font-size: 8vw;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.1em;
   line-height: 6.4vw;
 }
 

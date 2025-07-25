@@ -1,52 +1,52 @@
 export const faqItems = [
   {
-    question: "What types of films do you specialize in?",
+    question: "What types of videos do you create?",
     answer:
-      "I specialize in narrative short films, documentaries, and branded content. My focus is on strong storytelling and cinematic visuals.",
+      "We specialize in short-form video ads (12–16 seconds) built for platforms like TikTok, Meta, and YouTube Shorts. Every ad is designed to grab attention in the first second and drive clicks.",
   },
   {
-    question: "Are you available for freelance or commissioned work?",
+    question: "Do you work with brands and agencies?",
     answer:
-      "Yes, I’m open to freelance and commissioned projects. Feel free to reach out through the contact form to discuss your vision.",
+      "Yes, we partner with both brands and marketing agencies to create high-converting ad creatives tailored to their campaigns.",
   },
   {
-    question: "Do you handle both filming and post-production?",
+    question: "Do you handle everything from shooting to editing?",
     answer:
-      "Absolutely. I provide end-to-end services, including cinematography, editing, color grading, and sound design.",
+      "Absolutely. We provide end-to-end production — from concept and scripting to filming, editing, color grading, and motion graphics.",
   },
   {
-    question: "What equipment do you use?",
+    question: "What kind of equipment do you use?",
     answer:
-      "I shoot with industry-standard gear including 4K cameras, professional audio equipment, and high-end editing software.",
+      "We use professional Blackmagic cameras, studio lighting setups, and industry-standard post-production tools like DaVinci Resolve and Adobe Premiere Pro.",
   },
   {
     question: "Can you travel for shoots?",
     answer:
-      "Yes, I’m available for both local and international projects. Travel logistics can be discussed during the project planning phase.",
+      "Yes, we’re based in Toronto but available for projects across Canada and internationally. Travel details can be discussed during planning.",
   },
   {
     question: "Do you collaborate with other creatives?",
     answer:
-      "Definitely. I often work with writers, actors, musicians, and other filmmakers to bring projects to life collaboratively.",
+      "Definitely. We frequently collaborate with copywriters, voiceover artists, influencers, and marketing teams to maximize ad performance.",
   },
   {
-    question: "How long does it take to complete a project?",
+    question: "How fast can you deliver a project?",
     answer:
-      "Timelines vary by scope, but short films typically take 3–6 weeks. We’ll set a schedule that aligns with your goals and deadlines.",
+      "Turnaround times depend on scope, but we typically deliver a full set of 3 edited ads within 2–3 weeks after the shoot.",
   },
   {
-    question: "Can you help develop a concept or script?",
+    question: "Can you help with ad scripts and hooks?",
     answer:
-      "Yes, I offer creative development services including concept ideation, scripting, and storyboarding to shape your project from scratch.",
+      "Yes, creative strategy is part of our process. We craft multiple hooks, captions, and voiceover scripts to help test and optimize performance.",
   },
   {
-    question: "Where can I view your previous work?",
+    question: "Where can I see your previous work?",
     answer:
-      "You can explore my film projects on the portfolio page. Each listing includes a short description, trailer, or full version when available.",
+      "Check out the Work section on our website for examples of past video ad campaigns and creative projects.",
   },
   {
-    question: "How can I contact you for a project?",
+    question: "How can I start a project with you?",
     answer:
-      "You can use the contact form or email listed on the site. I aim to respond to all inquiries within 48 hours.",
+      "Just use our contact form or email us directly. We’ll get back to you within 24–48 hours to discuss your project goals.",
   },
 ];

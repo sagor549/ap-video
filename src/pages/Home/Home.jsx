@@ -1,9 +1,7 @@
-import workList from "../../data/workList";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Reviews from "../../components/Reviews/Reviews";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
@@ -15,96 +13,14 @@ import ReactLenis from "lenis/react";
 gsap.registerPlugin(ScrollTrigger);
 
 import Transition from "../../components/Transition/Transition";
+import PricingPackages from "../package/PricingPackages";
 
 const Home = () => {
-  const workItems = Array.isArray(workList) ? workList : [];
-  const stickyTitlesRef = useRef(null);
-  const titlesRef = useRef([]);
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    const stickySection = stickyTitlesRef.current;
-    const titles = titlesRef.current.filter(Boolean);
-
-    if (!stickySection || titles.length !== 3) {
-      window.removeEventListener("resize", handleResize);
-      return;
-    }
-
-    gsap.set(titles[0], { opacity: 1, scale: 1 });
-    gsap.set(titles[1], { opacity: 0, scale: 0.75 });
-    gsap.set(titles[2], { opacity: 0, scale: 0.75 });
-
-    const pinTrigger = ScrollTrigger.create({
-      trigger: stickySection,
-      start: "top top",
-      end: `+=${window.innerHeight * 5}`,
-      pin: true,
-      pinSpacing: true,
-    });
-
-    const masterTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: stickySection,
-        start: "top top",
-        end: `+=${window.innerHeight * 4}`,
-        scrub: 0.5,
-      },
-    });
-
-    masterTimeline
-      .to(
-        titles[0],
-        {
-          opacity: 0,
-          scale: 0.75,
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        1
-      )
-
-      .to(
-        titles[1],
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.in",
-        },
-        1.25
-      );
-
-    masterTimeline
-      .to(
-        titles[1],
-        {
-          opacity: 0,
-          scale: 0.75,
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        2.5
-      )
-
-      .to(
-        titles[2],
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.in",
-        },
-        2.75
-      );
-
+    // Set up pinning for work header
     const workHeaderSection = stickyWorkHeaderRef.current;
     const homeWorkSection = homeWorkRef.current;
 
@@ -121,110 +37,107 @@ const Home = () => {
     }
 
     return () => {
-      pinTrigger.kill();
-      if (workHeaderPinTrigger) {
-        workHeaderPinTrigger.kill();
-      }
-      if (masterTimeline.scrollTrigger) {
-        masterTimeline.scrollTrigger.kill();
-      }
-      masterTimeline.kill();
-      window.removeEventListener("resize", handleResize);
+      if (workHeaderPinTrigger) workHeaderPinTrigger.kill();
     };
   }, []);
+
+  // Sample work items with videos
+  const workItems = [
+    {
+      id: 1,
+      title: "Social Media Blitz",
+      category: "Short Form",
+      video: "/work/vid1.mp4"
+    },
+    {
+      id: 2,
+      title: "Product Launch",
+      category: "Explainer",
+      video: "/work/vid2.mp4"
+    },
+    {
+      id: 3,
+      title: "Brand Story",
+      category: "Narrative",
+      video: "/work/vid3.mp4"
+    }
+  ];
 
   return (
     <ReactLenis root>
       <div className="page home">
+        {/* Hero Section */}
         <section className="hero">
-          <div className="hero-img">
-            <img src="/home/hero.jpg" alt="" />
+          <div className="hero-video">
+            <video autoPlay loop muted playsInline>
+              <source src="/work/bgvid.mp4" type="video/mp4" />
+            </video>
+            <div className="video-overlay"></div>
           </div>
 
-          <div className="hero-header">
-            <AnimatedCopy tag="h1" animateOnScroll={false} delay={0.7}>
-              Nico
-            </AnimatedCopy>
-            <AnimatedCopy tag="h1" animateOnScroll={false} delay={0.8}>
-              Palmer
-            </AnimatedCopy>
+          <div className="hero-content">
+            <h1>AP Agency Video Ad Packages</h1>
+            <Link to="#contact" className="cta-button">
+              Get Started
+            </Link>
+            <div className="hero-text">
+              <p className="hero-line">You've Got 1 Second to Hook.</p>
+              <p className="hero-highlight">We Give You 3 Ads That Hit Like Brass Knuckles.</p>
+            </div>
+            <div className="hero-bottom-text">
+              <p>Nobody watches 60-second ads anymore—they scroll.</p>
+              <p>So we make ads built to stop thumbs and start clicks.</p>
+            </div>
           </div>
         </section>
 
-        <section ref={stickyTitlesRef} className="sticky-titles">
-          <div className="sticky-titles-nav">
-            <p className="primary sm">About Me</p>
-            <p className="primary sm">Let’s Connect</p>
-          </div>
-          <div className="sticky-titles-footer">
-            <p className="primary sm">Storytelling Through Film</p>
-            <p className="primary sm">Open to Collaborations</p>
-          </div>
-          <h2 ref={(el) => (titlesRef.current[0] = el)}>
-            I craft films that tell human stories with cinematic depth.
-          </h2>
-          <h2 ref={(el) => (titlesRef.current[1] = el)}>
-            Each project is driven by emotion, clarity, and vision.
-          </h2>
-          <h2 ref={(el) => (titlesRef.current[2] = el)}>
-            This portfolio is a glimpse into the frames that move me.
-          </h2>
+        {/* Results Section */}
+        <section className="results-section demo">
+          <p className="small-text ">So we make ads built to stop thumbs and start clicks.</p>
+          <h3>No fluff. Just results.</h3>
         </section>
 
+        {/* Reviews Section */}
+        <section className="reviews-section">
+          <Reviews />
+        </section>
+
+        {/* Work Showcase Section */}
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
-          <AnimatedCopy tag="h1" animateOnScroll="true">
-            Palmer selects
-          </AnimatedCopy>
+          <h1>AP Agency Video Selects</h1>
         </section>
 
         <section ref={homeWorkRef} className="home-work">
           <div className="home-work-list">
             {workItems.map((work, index) => (
-              <Link
-                to="/sample-project"
-                key={work.id}
-                className="home-work-item"
-              >
-                <p className="primary sm">{`${String(index + 1).padStart(
-                  2,
-                  "0"
-                )} - ${String(workItems.length).padStart(2, "0")}`}</p>
+              <div key={work.id} className="home-work-item">
+                <p className="primary sm">{`${String(index + 1).padStart(2, "0")} - ${String(workItems.length).padStart(2, "0")}`}</p>
                 <h3>{work.title}</h3>
-                <div className="work-item-img">
-                  <img src={work.image} alt={work.title} />
+                <div className="work-item-video">
+                  <video autoPlay loop muted playsInline>
+                    <source src={work.video} type="video/mp4" />
+                  </video>
                 </div>
                 <h4>{work.category}</h4>
-              </Link>
+              </div>
             ))}
           </div>
+          <Link to="/work" className="cta-button secondary see-all">
+            See All Works
+          </Link>
+        </section>
+        <section>
+          <PricingPackages/>
         </section>
 
-        <Reviews />
+       
 
-        <section className="hobbies">
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Camera
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Editing
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Story
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Sound
-            </AnimatedCopy>
-          </div>
+
+        {/* Contact Section */}
+        <section id="contact">
+          <ContactForm />
         </section>
-
-        <ContactForm />
+        
         <Footer />
       </div>
     </ReactLenis>
