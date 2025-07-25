@@ -14,14 +14,9 @@ const Menu = () => {
   ];
 
   const location = useLocation();
-  const menuContainer = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuAnimation = useRef();
   const menuLinksAnimation = useRef();
-  const menuBarAnimation = useRef();
-
-  const lastScrollY = useRef(0);
-  const menuBarRef = useRef();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [shouldDelayClose, setShouldDelayClose] = useState(false);
@@ -93,30 +88,17 @@ const Menu = () => {
   useEffect(() => {
     gsap.set(".menu-link-item-holder", { y: 125 });
 
-    menuAnimation.current = gsap.timeline({ paused: true }).to(".menu", {
-      duration: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      ease: "power4.inOut",
-    });
-
-    const createMenuBarAnimation = () => {
-      if (menuBarAnimation.current) {
-        menuBarAnimation.current.kill();
-      }
-
-      const heightValue =
-        windowWidth < 1000 ? "calc(100% - 2.5em)" : "calc(100% - 4em)";
-
-      menuBarAnimation.current = gsap
-        .timeline({ paused: true })
-        .to(".menu-bar", {
-          duration: 1,
-          height: heightValue,
-          ease: "power4.inOut",
-        });
-    };
-
-    createMenuBarAnimation();
+    menuAnimation.current = gsap.timeline({ paused: true })
+      .to(".menu", {
+        duration: 1,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "power4.inOut",
+      })
+      .to(".menu-bar", {
+        duration: 1,
+        height: windowWidth < 1000 ? "calc(100% - 2.5em)" : "calc(100% - 4em)",
+        ease: "power4.inOut",
+      }, 0);
 
     menuLinksAnimation.current = gsap
       .timeline({ paused: true })
@@ -132,43 +114,11 @@ const Menu = () => {
   useEffect(() => {
     if (isMenuOpen) {
       menuAnimation.current.play();
-      menuBarAnimation.current.play();
       menuLinksAnimation.current.play();
     } else {
       menuAnimation.current.reverse();
-      menuBarAnimation.current.reverse();
       menuLinksAnimation.current.reverse();
     }
-  }, [isMenuOpen]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isMenuOpen) return;
-
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY.current) {
-        gsap.to(".menu-bar", {
-          y: -200,
-          duration: 1,
-          ease: "power2.out",
-        });
-      } else {
-        gsap.to(".menu-bar", {
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        });
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -180,8 +130,8 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="menu-container" ref={menuContainer}>
-      <div className="menu-bar" ref={menuBarRef}>
+    <div className="menu-container">
+      <div className="menu-bar">
         <div className="menu-bar-container">
           <div className="menu-logo" onClick={closeMenu}>
             <Link to="/">
