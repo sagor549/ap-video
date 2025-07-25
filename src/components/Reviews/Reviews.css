@@ -40,8 +40,8 @@ text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
 letter-spacing: 2px;
 margin: 0;
 opacity: 0.9;
-poistion:relative;
-top:-288px;
+position:relative;
+top:-488px;
 }
 
 /* Ensure all content is above the overlay */
