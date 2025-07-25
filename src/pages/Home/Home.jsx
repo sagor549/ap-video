@@ -77,7 +77,7 @@ const Home = () => {
 
           <div className="hero-content">
             <h1>AP Agency Video Ad Packages</h1>
-            <Link to="#contact" className="cta-button">
+            <Link to="#contact" className="butt">
               Get Started
             </Link>
             <div className="hero-text">
@@ -122,16 +122,13 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <Link to="/work" className="cta-button secondary see-all">
+          <Link to="/work" className="butt  see-all">
             See All Works
           </Link>
         </section>
         <section>
           <PricingPackages/>
         </section>
-
-       
-
 
         {/* Contact Section */}
         <section id="contact">
