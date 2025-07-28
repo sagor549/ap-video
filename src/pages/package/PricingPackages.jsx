@@ -1,21 +1,28 @@
 // src/components/PricingPackages/PricingPackages.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdArrowOutward, MdPlayCircle, MdPauseCircle } from 'react-icons/md';
 import './PricingPackages.css';
 
-const PackageCard = ({ pkg }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
+  const videoId = `video-${pkg.title.replace(/\s+/g, '-')}`;
   
-  const togglePlay = () => {
-    const video = document.getElementById(`video-${pkg.title.replace(/\s+/g, '-')}`);
+  // Handle video play/pause when props change
+  useEffect(() => {
+    const video = document.getElementById(videoId);
     if (video) {
       if (isPlaying) {
-        video.pause();
-      } else {
         video.play().catch(e => console.log("Video play error:", e));
+      } else {
+        video.pause();
       }
-      setIsPlaying(!isPlaying);
     }
+  }, [isPlaying, videoId]);
+
+  const handlePlayClick = () => {
+    if (!isPlaying) {
+      pauseAllVideos(); // Pause all other videos first
+    }
+    togglePlay();
   };
 
   return (
@@ -65,7 +72,6 @@ const PackageCard = ({ pkg }) => {
         
         <button 
           className="cta-button"
-          style={{ backgroundColor: pkg.color }}
         >
           Get {pkg.title.split(' ')[0]}
           <MdArrowOutward size={20} />
@@ -75,20 +81,21 @@ const PackageCard = ({ pkg }) => {
       <div className="card-right">
         <div className="video-container">
           <video 
-            id={`video-${pkg.title.replace(/\s+/g, '-')}`}
+            id={videoId}
             className="package-video"
             muted
             loop
             playsInline
             preload="metadata"
+            poster={pkg.thumbnail}
           >
             <source src={pkg.video} type="video/mp4" />
           </video>
-          <div className="video-overlay" style={{ background: `linear-gradient(to top, ${pkg.color}22, transparent)` }}></div>
+          <div className="video-overlay"></div>
           
           <button 
-            className="video-control"
-            onClick={togglePlay}
+            className={isPlaying ? "video-control-pause" : "video-control-play"}
+            onClick={handlePlayClick}
           >
             {isPlaying ? <MdPauseCircle size={32} /> : <MdPlayCircle size={32} />}
           </button>
@@ -99,6 +106,16 @@ const PackageCard = ({ pkg }) => {
 };
 
 const PricingPackages = () => {
+  const [playingVideo, setPlayingVideo] = useState(null);
+
+  const pauseAllVideos = () => {
+    setPlayingVideo(null);
+  };
+
+  const togglePlay = (title) => {
+    setPlayingVideo(playingVideo === title ? null : title);
+  };
+
   const packages = [
     {
       title: "STANDARD Video Package",
@@ -120,8 +137,9 @@ const PricingPackages = () => {
       price: 899,
       originalPrice: 1299,
       guarantee: "If it doesn't beat your current best ad, we'll re-edit it for free or credit your money back.",
-      color: "#FFD700",
-      video: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-modern-abstract-background-39850-large.mp4"
+      color: "#FF4D6D",
+      video: "/work/basic.mp4",
+      thumbnail: "/work/basic.png"
     },
     {
       title: "PRO Video Package",
@@ -142,8 +160,9 @@ const PricingPackages = () => {
       price: 1399,
       originalPrice: 1799,
       guarantee: "If these don't outperform your last campaign in CTR or CPL, we'll shoot an extra edit free or credit your next batch.",
-      color: "#2E86C1",
-      video: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-modern-abstract-background-39850-large.mp4"
+      color: "#6D4DFF",
+      video: "/work/pro.mp4",
+      thumbnail: "/work/pro.png"
     },
     {
       title: "EPIC Video Package",
@@ -164,8 +183,9 @@ const PricingPackages = () => {
       price: "3,000-6,000",
       originalPrice: null,
       guarantee: "If this doesn't outperform your current best campaign, we'll reshoot one version or credit your next creative. No hassle.",
-      color: "#E74C3C",
-      video: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-modern-abstract-background-39850-large.mp4"
+      color: "#FF4D6D",
+      video: "/work/epic.mp4",
+      thumbnail: "/work/epic.png"
     }
   ];
 
@@ -183,7 +203,13 @@ const PricingPackages = () => {
 
         <div className="packages-grid">
           {packages.map((pkg) => (
-            <PackageCard key={pkg.title} pkg={pkg} />
+            <PackageCard 
+              key={pkg.title} 
+              pkg={pkg}
+              isPlaying={playingVideo === pkg.title}
+              togglePlay={() => togglePlay(pkg.title)}
+              pauseAllVideos={pauseAllVideos}
+            />
           ))}
         </div>
         
