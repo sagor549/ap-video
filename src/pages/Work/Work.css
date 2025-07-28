@@ -14,22 +14,68 @@ body {
   height: 100svh;
   overflow: hidden;
   background-color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .work-slider-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.main-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  object-fit: contain;
+  background: black;
 }
 
-.work-slider-img video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease;
+.mute-button {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+.mute-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.mute-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
 }
 
 .work-items-preview-container {
@@ -71,47 +117,6 @@ body {
   object-fit: cover;
 }
 
-.carousel-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  width: 100%;
-  max-width: 800px;
-  padding: 1.25em;
-  z-index: 5;
-  text-align: center;
-}
-
-.carousel-description,
-.carousel-title {
-  position: relative;
-  width: 100%;
-  background: rgba(10, 10, 10, 0.7);
-  padding: 15px 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  transition: opacity 0.5s ease;
-}
-
-.carousel-title h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 800;
-  color: #fff;
-}
-
-.carousel-description p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0;
-  color: #ddd;
-}
-
 @media (max-width: 1000px) {
   .work-items-preview-container {
     width: 95%;
@@ -122,14 +127,6 @@ body {
   .work-item {
     flex: 0 0 80px;
     height: 60px;
-  }
-  
-  .carousel-title h1 {
-    font-size: 2rem;
-  }
-  
-  .carousel-description p {
-    font-size: 1rem;
   }
 }
 
@@ -144,7 +141,15 @@ body {
     height: 45px;
   }
   
-  .carousel-title h1 {
-    font-size: 1.5rem;
+  .mute-button {
+    bottom: 110px;
+    right: 170px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .mute-button svg {
+    width: 18px;
+    height: 18px;
   }
 }

@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { gsap } from "gsap";
 import "./Work.css";
 
 const projects = [
@@ -27,25 +25,26 @@ const projects = [
     title: "Project Delta",
     description: "Interactive educational platform for remote learning",
     video: "/work/basic.mp4"
+  },
+  {
+    id: 5,
+    title: "Project Delta",
+    description: "Interactive educational platform for remote learning",
+    video: "/work/pro.mp4"
+  },
+  {
+    id: 6,
+    title: "Project Delta",
+    description: "Interactive educational platform for remote learning",
+    video: "/work/epic.mp4"
   }
 ];
 
 const Work = () => {
   const [activeProject, setActiveProject] = useState(projects[0]);
-  const carouselDescriptionRef = useRef(null);
-  const carouselTitleRef = useRef(null);
-  const descriptionTextRef = useRef(null);
-  const titleTextRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const mainVideoRef = useRef(null);
   const previewVideoRefs = useRef([]);
-  const navigate = useNavigate();
-
-  // Initialize text refs
-  useEffect(() => {
-    if (carouselDescriptionRef.current && carouselTitleRef.current) {
-      descriptionTextRef.current = carouselDescriptionRef.current.querySelector("p");
-      titleTextRef.current = carouselTitleRef.current.querySelector("h1");
-    }
-  }, []);
 
   // Play all preview videos on mount
   useEffect(() => {
@@ -56,33 +55,46 @@ const Work = () => {
     });
   }, []);
 
-  const animateCarouselInfo = (newProject) => {
-    const tl = gsap.timeline();
-    
-    // Fade out current content
-    tl.to([descriptionTextRef.current, titleTextRef.current], {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.in",
-    });
-    
-    tl.add(() => {
-      // Update content while hidden
-      setActiveProject(newProject);
-    }, ">");
-    
-    // Fade in new content
-    tl.to([descriptionTextRef.current, titleTextRef.current], {
-      opacity: 1,
-      duration: 0.75,
-      ease: "power2.out",
-      stagger: 0.15
-    }, ">+=0.1");
-  };
+  // Handle main video playback when changing projects
+  useEffect(() => {
+    const playVideo = async () => {
+      if (mainVideoRef.current) {
+        try {
+          // Reset video to ensure proper playback
+          mainVideoRef.current.pause();
+          mainVideoRef.current.currentTime = 0;
+          
+          // Add slight delay to allow browser to handle video change
+          await new Promise(resolve => setTimeout(resolve, 50));
+          
+          // Play the new video
+          await mainVideoRef.current.play();
+        } catch (error) {
+          console.error("Error playing main video:", error);
+          
+          // Fallback: Try playing again with a longer delay
+          setTimeout(() => {
+            if (mainVideoRef.current) {
+              mainVideoRef.current.play().catch(e => console.error("Retry failed:", e));
+            }
+          }, 300);
+        }
+      }
+    };
+
+    playVideo();
+  }, [activeProject]);
 
   const handleWorkItemClick = (project) => {
     if (project.id !== activeProject.id) {
-      animateCarouselInfo(project);
+      setActiveProject(project);
+    }
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    if (mainVideoRef.current) {
+      mainVideoRef.current.muted = !isMuted;
     }
   };
 
@@ -90,15 +102,33 @@ const Work = () => {
     <div className="page work">
       <div className="work-carousel">
         <div className="work-slider-img">
-          <video
-            key={activeProject.id}
-            src={activeProject.video}
-            muted
-            loop
-            autoPlay
-            playsInline
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          <div className="video-container">
+            <video
+              ref={mainVideoRef}
+              key={activeProject.id}
+              src={activeProject.video}
+              muted={isMuted}
+              loop
+              playsInline
+              className="main-video"
+            />
+          </div>
+          
+          <button className="mute-button" onClick={toggleMute}>
+            {isMuted ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            )}
+          </button>
         </div>
 
         <div className="work-items-preview-container">
@@ -122,7 +152,6 @@ const Work = () => {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );
