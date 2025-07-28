@@ -48,7 +48,7 @@ html, body {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 1200px;
+  max-width: 100%;
   padding: 2em;
   display: flex;
   flex-direction: column;
@@ -59,12 +59,12 @@ html, body {
 
 .hero-content h1 {
   font-size: 5vw;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+
   line-height: 5.4vw;
   color: var(--bg);
   margin-bottom: 1rem;
-  font-family: "Messina Sans";
+  font-family: "Inter";
 }
 
 .hero-text {
@@ -75,19 +75,19 @@ html, body {
 }
 
 .hero-line {
-  font-family: "Messina Sans";
+  font-family: "Inter";
   font-size: 2vw;
   font-weight: 600;
   color: var(--bg);
-  letter-spacing: 0.02em;
+
 }
 
 .hero-highlight {
-  font-family: "Rader";
+  font-family: "Inter";
   font-size: 3vw;
   font-weight: 600;
   color: #FFD700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -96,11 +96,11 @@ html, body {
 }
 
 .hero-bottom-text p {
-  font-family: "Messina Sans";
+  font-family: "Inter";
   font-size: 1.2vw;
   font-weight: 600;
   color: var(--bg);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }
 
 /* FIXED: Corrected CTA button styles */
@@ -111,7 +111,7 @@ html, body {
   color: black;
   border-radius: 0;
   text-decoration: none;
-  font-family: "Messina Sans Mono";
+  font-family: "Inter Mono";
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -155,7 +155,7 @@ html, body {
 }
 
 .results-section .small-text {
-  font-family: "Messina Sans";
+  font-family: "Inter";
   font-size: 1.8vw;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -166,8 +166,8 @@ html, body {
   font-size: 6vw;
   font-weight: 600;
   letter-spacing: 0.1em;
-  line-height: 1.1;
-  font-family: "Messina Sans";
+  line-height: 1.6;
+  font-family: "Inter";
 }
 
 /* Reviews Section */
@@ -225,7 +225,7 @@ html, body {
   line-height: 1;
   font-size: 8vw;
   letter-spacing: 0.1em;
-  font-family: "Messina Sans";
+  font-family: "Inter";
   z-index:2;
 }
 
@@ -259,11 +259,11 @@ html, body {
 }
 
 .home-work-item h3 {
-  font-family: "Messina Sans";
+  font-family: "Inter";
 }
 
 .home-work-item h4 {
-  font-family: "Messina Sans";
+  font-family: "Inter";
 }
 
 .work-item-video {
@@ -344,13 +344,14 @@ html, body {
 
   .hero-content {
     padding: 1em;
-    margin-top: 40px;
+    margin-top: 70px;
     gap: 1em;
   }
   
   .hero-content h1 {
     font-size: 8vw;
     line-height: 1.2;
+    margin-top:30px;
   }
 
   .hero-line {
