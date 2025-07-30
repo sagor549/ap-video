@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 .contact-form {
   padding: 2em;
   display: flex;
@@ -6,6 +8,7 @@
   margin: 2em;
   background-color: var(--fg);
   border-radius: 1em;
+  font-family: 'Inter', sans-serif;
 }
 
 .contact-form h3,
@@ -15,38 +18,77 @@
   color: var(--bg);
 }
 
+.contact-form h3 {
+  color: #FFD700; /* Golden color */
+}
+
 .contact-form input,
 .contact-form textarea {
   background-color: var(--fg200);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .contact-form .btn {
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 14px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-form .btn:hover {
+  background-color: black;
+  color: white;
 }
 
 .contact-form-row:nth-child(1) {
   width: 100%;
   display: flex;
-  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contact-form-row-copy-item {
   flex: 1;
 }
 
-.contact-form-row-copy-item:nth-child(2) {
-  text-align: center;
+.contact-form-row-copy-item:nth-child(1) {
+  text-align: left;
 }
 
-.contact-form-row-copy-item:nth-child(3) {
+.contact-form-row-copy-item:nth-child(2) {
   text-align: right;
+}
+
+/* Adjusted header size */
+.primary.lg {
+  font-size: 3rem; /* Reduced from 3.5rem */
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.contact-form-row:nth-child(2) {
+  display: flex;
+  gap: 2em;
+}
+
+.contact-form-col {
+  flex: 1;
 }
 
 .contact-form-col:nth-child(1) {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  justify-content: flex-start;
 }
 
 .contact-form-header {
@@ -57,80 +99,120 @@
 
 .contact-form-header p {
   margin-bottom: 0.5em;
-  width: 75%;
-}
-
-.contact-form-row:nth-child(2) {
-  display: flex;
-  gap: 1em;
-}
-
-.contact-form-col {
-  flex: 1;
-}
-
-.contact-form-col:nth-child(1) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 4em;
-}
-
-.contact-form-availability {
-  width: 75%;
-  display: flex;
-  justify-content: space-between;
-  gap: 1em;
-  border-top: 1px dashed var(--bg);
-  padding: 0.5em 0;
+  width: 90%;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .contact-form-col:nth-child(2) {
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
+  gap: 1.25em;
 }
 
 .form-item .btn {
   width: 100%;
 }
 
+/* Package selection styling */
+.package-label {
+  font-weight: 500;
+  margin-bottom: 0.75em;
+  display: block;
+}
+
+.package-options {
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 1em;
+}
+
+.package-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.package-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #FFD700; /* Golden radio button */
+}
+
+.package-option label {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Features section */
+.contact-features {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  border-top: 1px dashed var(--bg);
+  padding-top: 2em;
+  margin-top: 1em;
+}
+
+.feature-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.feature-item:nth-child(1) {
+  text-align: left;
+}
+
+.feature-item:nth-child(2) {
+  text-align: center;
+}
+
+.feature-item:nth-child(3) {
+  text-align: right;
+}
+
 @media (max-width: 900px) {
   .contact-form {
     margin: 1.25em;
+    padding: 1.5em;
+    gap: 2.5em;
   }
+  
+  .primary.lg {
+    font-size: 2.2rem; /* Reduced from 2.5rem */
+  }
+
   .contact-form-row:nth-child(1) {
     flex-direction: column;
     gap: 0.25em;
-  }
-
-  .contact-form-row-copy-item {
-    text-align: center;
-  }
-
-  .contact-form-row-copy-item:nth-child(3),
-  .contact-form h3,
-  .contact-form p {
-    text-align: center;
+    align-items: flex-start;
   }
 
   .contact-form-row:nth-child(2) {
     flex-direction: column;
-    gap: 4em;
+    gap: 3em;
   }
 
-  .contact-form-header p,
-  .contact-form-availability {
+  .contact-form-header p {
     width: 100%;
   }
 
-  .contact-form-col:nth-child(1) {
-    gap: 2em;
+  .contact-features {
+    flex-direction: column;
+    gap: 1.5em;
+    padding-top: 1.5em;
   }
 
-  .contact-form-availability {
+  .feature-item {
+    text-align: center !important;
+    padding: 0;
+  }
+
+  .package-options {
     flex-direction: column;
-    text-align: center;
-    gap: 0.25em;
+    gap: 0.75em;
   }
 }

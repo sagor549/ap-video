@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdArrowOutward, MdPlayCircle, MdPauseCircle } from 'react-icons/md';
 import './PricingPackages.css';
+import { Link } from "react-router-dom";
 
 const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
   const videoId = `video-${pkg.title.replace(/\s+/g, '-')}`;
@@ -66,16 +67,17 @@ const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
         </div>
         
         <div className="guarantee-box">
-          <div className="guarantee-title">🎯 Guarantee:</div>
+          <div className="guarantee-title">Performance Promise:</div>
           <p>{pkg.guarantee}</p>
         </div>
         
-        <button 
-          className="cta-button"
+        <Link 
+          to="/contact" 
+          className="ctabutt"
         >
           Get {pkg.title.split(' ')[0]}
           <MdArrowOutward size={20} />
-        </button>
+        </Link>
       </div>
       
       <div className="card-right">
@@ -167,7 +169,7 @@ const PricingPackages = () => {
     {
       title: "EPIC Video Package",
       subtitle: "The Market Dominator",
-      description: "Full production. Director. Models. Studio. You look like a 7-figure brand—even if you're not.",
+      description: "Full production. Director. Models. Studio. Look like a seven figure brand, no matter your size.",
       who: [
         "High-ticket brands, big launches, or founders ready to flex.",
         "You want elite visuals and ad creatives that sell hard.",
@@ -213,35 +215,7 @@ const PricingPackages = () => {
           ))}
         </div>
         
-        <div className="recommendation">
-          <h3 className="recommendation-title">Final Word</h3>
-          <div className="recommendation-grid">
-            <div className="recommendation-card">
-              <div className="card-header">
-                <div className="color-indicator" style={{ backgroundColor: packages[0].color }}></div>
-                <div className="card-title">Pick STANDARD if</div>
-              </div>
-              <p>You've got footage, a budget, and a pulse.</p>
-            </div>
-            <div className="recommendation-card">
-              <div className="card-header">
-                <div className="color-indicator" style={{ backgroundColor: packages[1].color }}></div>
-                <div className="card-title">Pick PRO if</div>
-              </div>
-              <p>You want us to film it—clean, fast, effective.</p>
-            </div>
-            <div className="recommendation-card">
-              <div className="card-header">
-                <div className="color-indicator" style={{ backgroundColor: packages[2].color }}></div>
-                <div className="card-title">Pick EPIC if</div>
-              </div>
-              <p>You want your brand to hit like a heavyweight.</p>
-            </div>
-          </div>
-          <div className="final-statement">
-            This is short-form that <span>sells</span>, not entertains. We don't care about likes. We care about money.
-          </div>
-        </div>
+        
       </div>
     </section>
   );

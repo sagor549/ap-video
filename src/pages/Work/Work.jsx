@@ -146,7 +146,7 @@ const Work = () => {
   };
 
   return (
-    <div className="page work">
+    <div className="page  portfolio">
       <div className="work-carousel">
         <div className="work-slider-img">
           <div className="video-container" onClick={handleMainVideoClick}>

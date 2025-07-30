@@ -18,27 +18,31 @@ import PricingPackages from "../package/PricingPackages";
 const Home = () => {
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
+  const resultsSectionRef = useRef(null);
 
   useEffect(() => {
     // Set up pinning for work header
     const workHeaderSection = stickyWorkHeaderRef.current;
     const homeWorkSection = homeWorkRef.current;
+    
+    // Mobile-specific fix: Only enable pinning on desktop
+    if (window.innerWidth >= 768) {
+      let workHeaderPinTrigger;
+      if (workHeaderSection && homeWorkSection) {
+        workHeaderPinTrigger = ScrollTrigger.create({
+          trigger: workHeaderSection,
+          start: "top top",
+          endTrigger: homeWorkSection,
+          end: "bottom bottom",
+          pin: true,
+          pinSpacing: false,
+        });
+      }
 
-    let workHeaderPinTrigger;
-    if (workHeaderSection && homeWorkSection) {
-      workHeaderPinTrigger = ScrollTrigger.create({
-        trigger: workHeaderSection,
-        start: "top top",
-        endTrigger: homeWorkSection,
-        end: "bottom bottom",
-        pin: true,
-        pinSpacing: false,
-      });
+      return () => {
+        if (workHeaderPinTrigger) workHeaderPinTrigger.kill();
+      };
     }
-
-    return () => {
-      if (workHeaderPinTrigger) workHeaderPinTrigger.kill();
-    };
   }, []);
 
   // Sample work items with videos
@@ -76,7 +80,9 @@ const Home = () => {
           </div>
 
           <div className="hero-content">
-            <h1>AP Agency Video Ad Packages</h1>
+            <h1>AdCraft by AP Agency
+</h1>
+ <p className="hero-line">High-performance video ads for brands and creators.</p>
             <Link to="#contact" className="butt">
               Get Started
             </Link>
@@ -92,7 +98,7 @@ const Home = () => {
         </section>
 
         {/* Results Section */}
-        <section className="results-section demo">
+        <section ref={resultsSectionRef} className="results-section demo">
           <p className="small-text ">So we make ads built to stop thumbs and start clicks.</p>
           <h3>No fluff. Just results.</h3>
         </section>
@@ -104,14 +110,14 @@ const Home = () => {
 
         {/* Work Showcase Section */}
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
-          <h1>AP Agency Video Selects</h1>
+          <h1>Choose Your Video Package</h1>
         </section>
 
         <section ref={homeWorkRef} className="home-work">
           <div className="home-work-list">
             {workItems.map((work, index) => (
               <div key={work.id} className="home-work-item">
-                <p className="primary sm">{`${String(index + 1).padStart(2, "0")} - ${String(workItems.length).padStart(2, "0")}`}</p>
+                
                 <h3>{work.title}</h3>
                 <div className="work-item-video">
                   <video autoPlay loop muted playsInline>
@@ -122,7 +128,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <Link to="/work" className="butt  see-all">
+          <Link to="/portfolio" className="butt  see-all">
             See All Works
           </Link>
         </section>
