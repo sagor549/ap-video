@@ -11,6 +11,7 @@ justify-content: center;
 align-items: center;
 gap: 2em;
 transition: background-image 0.8s ease-in-out;
+ overflow-x:hidden;
 }
 
 /* Darker overlay for better text readability over background images */

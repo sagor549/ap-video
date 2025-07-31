@@ -1,17 +1,23 @@
 .about-header {
-  width: 10%;
+  width: 100%;
   margin-top: 8em;
   padding: 2em;
-  display: flex;
-  justify-content: space-between;
 }
 
 .about-header h1 {
   position: relative;
-  left: -0.75vw;
+  left: 0.75vw;
   font-size: 14vw;
-  line-height: 0.75;
+  letter-spacing: -0.02em;
+  line-height: 0.9; /* Adjusted for better 
+  spacing */
+  width:100%
 }
+h3{
+  text-transform:none;
+ 
+}
+
 
 .about-hero {
   position: relative;
@@ -47,9 +53,6 @@
 
 .about-me-copy-wrapper h3 {
   margin: 1em;
-}
-
-.about-me-copy-wrapper h3 {
   font-size: 3vw;
   letter-spacing: -0.02em;
   line-height: 3vw;
@@ -204,6 +207,10 @@
 @media (max-width: 1000px) {
   .about-header {
     padding: 1.25em;
+  }
+  
+  .about-header h1 {
+    line-height: 0.95; /* Better mobile spacing */
   }
 
   .about-hero,

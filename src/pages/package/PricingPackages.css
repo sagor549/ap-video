@@ -6,6 +6,7 @@
   --text-secondary: #b0b0c0;
   --accent: #FFD700; /* Changed from #ff4d6d to gold */
   --accent-secondary: #D4AF37; /* Changed to complementary gold shade */
+   overflow-x:hidden;
 }
 
 .pricing-packages {

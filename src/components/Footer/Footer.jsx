@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <Link to="/contact" className="btn">
+          <Link to="/contact" className="bt">
             Get in Touch
           </Link>
         </div>
@@ -56,8 +56,8 @@ const Footer = () => {
             <span>&#8594;</span>
           </Link>
 
-          <Link to="/work" className="footer-nav-item">
-            <span>Work</span>
+          <Link to="/portfolio" className="footer-nav-item">
+            <span>Portfolio</span>
             <span>&#8594;</span>
           </Link>
 

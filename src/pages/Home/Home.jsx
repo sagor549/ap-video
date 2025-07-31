@@ -108,6 +108,10 @@ const Home = () => {
           <Reviews />
         </section>
 
+         <section>
+          <PricingPackages/>
+        </section>
+
         {/* Work Showcase Section */}
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
           <h1>Choose Your Video Package</h1>
@@ -132,9 +136,7 @@ const Home = () => {
             See All Works
           </Link>
         </section>
-        <section>
-          <PricingPackages/>
-        </section>
+       
 
         {/* Contact Section */}
         <section id="contact">

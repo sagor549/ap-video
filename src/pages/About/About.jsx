@@ -6,7 +6,6 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
 
 import ReactLenis from "lenis/react";
-
 import Transition from "../../components/Transition/Transition";
 
 const About = () => {
@@ -14,34 +13,35 @@ const About = () => {
     <ReactLenis root>
       <div className="page about">
         <section className="about-header">
-          <h1>About</h1>
-          <h1>Us</h1>
+          <h1>About Us</h1>
         </section>
 
         <section className="about-hero">
           <div className="about-hero-img">
-            <img src="/about/about-hero.jpg" alt="" />
+            <img src="/about/about-hero.jpg" alt="AP Agency team" />
           </div>
         </section>
 
         <section className="about-me-copy">
           <div className="about-me-copy-wrapper">
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              We’re AP Agency — a Toronto-based video ad agency built for the
-              fast-paced digital world. Our focus? Ads that grab attention in
-              the first second and never let go.
+              We are AP Agency, a Toronto based video ad agency built for the fast moving digital world.
             </AnimatedCopy>
 
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              Nobody has time for 60-second commercials anymore — they scroll.
-              That’s why we craft short, punchy, high-converting videos designed
-              to stop thumbs and drive clicks.
+              With over seven years in the industry, we deliver the highest quality productions and result driven content.
             </AnimatedCopy>
 
             <AnimatedCopy animateOnScroll={true} tag="h3">
-              Each package delivers 3 unique short-form ads (12–16 seconds)
-              from one shoot — different hooks, captions, and scripts — all
-              engineered to deliver results.
+              Attention is everything. People do not watch long commercials anymore — they scroll. That is why we craft sharp, captivating short form videos that stop thumbs and drive action.
+            </AnimatedCopy>
+
+            <AnimatedCopy animateOnScroll={true} tag="h3">
+              Each shoot delivers three unique ads, each twelve to sixteen seconds. Distinct hooks, tailored scripts, crafted captions. All designed to capture attention in the very first second and keep it.
+            </AnimatedCopy>
+
+            <AnimatedCopy animateOnScroll={true} tag="h3">
+              We do not just make ads. We create work that elevates your brand, engages your audience, and delivers measurable results.
             </AnimatedCopy>
           </div>
         </section>
@@ -49,25 +49,23 @@ const About = () => {
         <section className="services">
           <div className="services-col">
             <div className="services-banner">
-              <img src="/about/services-banner.jpg" alt="" />
+              <img src="/about/services-banner.jpg" alt="Creative production" />
             </div>
-            <p className="primary">Crafted for Impact</p>
+            <p className="primary lg">What We Deliver</p>
           </div>
           <div className="services-col">
             <h4>
-              Every video is designed with intention — clear messaging, sharp
-              visuals, and storytelling that connects instantly.
+              Every video is crafted with purpose — clear messaging, captivating visuals, and storytelling that resonates in seconds.
             </h4>
 
             <div className="services-list">
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Short-form Video Ads</h5>
+                  <h5>Short Form Video Ads</h5>
                 </div>
                 <div className="service-list-col">
                   <p>
-                    We create high-performing 12–16 second ads optimized for
-                    social platforms like TikTok, Meta, and YouTube Shorts.
+                    Twelve to sixteen second ads engineered for platforms like TikTok, Meta, and YouTube Shorts. Built to capture attention fast and drive measurable results.
                   </p>
                 </div>
               </div>
@@ -78,21 +76,18 @@ const About = () => {
                 </div>
                 <div className="service-list-col">
                   <p>
-                    From scripting and storyboarding to shooting and editing,
-                    we ensure every creative element works toward engagement
-                    and conversions.
+                    From concept and scripting to production and editing, we shape every creative detail to spark engagement and strengthen brand impact.
                   </p>
                 </div>
               </div>
 
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Post-Production</h5>
+                  <h5>Post Production</h5>
                 </div>
                 <div className="service-list-col">
                   <p>
-                    We handle editing, color grading, sound design, and motion
-                    graphics to create polished, thumb-stopping content.
+                    Polished edits, refined color grading, immersive sound design, and dynamic motion graphics — all combined to create content that stops the scroll.
                   </p>
                 </div>
               </div>
@@ -102,7 +97,7 @@ const About = () => {
 
         <section className="about-banner-img">
           <div className="about-banner-img-wrapper">
-            <img src="/about/about-banner.jpg" alt="" />
+            <img src="/about/about-banner.jpg" alt="Production process" />
           </div>
         </section>
 
@@ -130,21 +125,21 @@ const About = () => {
             <div className="fav-tools-list-row">
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-1.jpg" alt="" />
+                  <img src="/work/davi.jpg" alt="DaVinci Resolve" />
                 </div>
                 <h4>DaVinci Resolve</h4>
                 <p className="primary sm">Color Grading</p>
               </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-2.jpg" alt="" />
+                  <img src="/work/adobe.jpg" alt="Adobe Premiere Pro" />
                 </div>
                 <h4>Adobe Premiere Pro</h4>
                 <p className="primary sm">Video Editing</p>
               </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-3.jpg" alt="" />
+                  <img src="/work/black.jpg" alt="Blackmagic Pocket" />
                 </div>
                 <h4>Blackmagic Pocket</h4>
                 <p className="primary sm">Cinematic Shooting</p>
@@ -153,21 +148,21 @@ const About = () => {
             <div className="fav-tools-list-row">
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-4.jpg" alt="" />
+                  <img src="/work/shot.jpg" alt="ShotDeck" />
                 </div>
                 <h4>ShotDeck</h4>
                 <p className="primary sm">Visual References</p>
               </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-5.jpg" alt="" />
+                  <img src="/work/may.png" alt="Frame.io" />
                 </div>
                 <h4>Frame.io</h4>
                 <p className="primary sm">Remote Collaboration</p>
               </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/about/tool-6.jpg" alt="" />
+                  <img src="/work/celtx.jpg" alt="Celtx" />
                 </div>
                 <h4>Celtx</h4>
                 <p className="primary sm">Scriptwriting Tool</p>

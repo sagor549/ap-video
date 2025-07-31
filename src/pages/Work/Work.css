@@ -158,6 +158,15 @@ body {
   justify-content: center;
   gap: 1em;
   z-index: 10;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.work-items-preview-container::-webkit-scrollbar {
+  display: none;
 }
 
 .work-item {
@@ -170,6 +179,7 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   border: 2px solid transparent;
   position: relative;
+  flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 .work-item:hover {
@@ -202,6 +212,8 @@ body {
     width: 95%;
     height: 80px;
     gap: 0.5em;
+    justify-content: flex-start; /* Align left for scrolling */
+    padding: 0 10px; /* Add padding for scroll boundaries */
   }
   
   .work-item {
@@ -213,7 +225,11 @@ body {
 @media (max-width: 600px) {
   .work-items-preview-container {
     height: 70px;
-    bottom: 1em;
+    bottom: 80px; /* Raise to make space for mute button */
+    width: 100%;
+    left: 0;
+    transform: none;
+    padding: 0 15px;
   }
   
   .work-item {
@@ -222,15 +238,12 @@ body {
   }
   
   .mute-button {
-    bottom: 110px;
-    right: 170px;
+    bottom: 20px; /* Center from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
     width: 36px;
     height: 36px;
-  }
-  
-  .mute-button svg {
-    width: 18px;
-    height: 18px;
   }
   
   .play-indicator {

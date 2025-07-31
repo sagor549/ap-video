@@ -32,20 +32,22 @@
   font-family: 'Inter', sans-serif;
 }
 
-.contact-form .btn {
-  background-color: white;
-  color: black;
+
+.bt{
+  color:black;
+  background-color:white;
   border: 2px solid black;
-  padding: 14px 0;
+  padding: 14px 10px;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+  width:100%;
 }
 
-.contact-form .btn:hover {
+.bt:hover {
   background-color: black;
   color: white;
 }
@@ -62,7 +64,7 @@
 }
 
 .contact-form-row-copy-item:nth-child(1) {
-  text-align: left;
+  text-align: center;
 }
 
 .contact-form-row-copy-item:nth-child(2) {

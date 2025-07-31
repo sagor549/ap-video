@@ -5,12 +5,10 @@ const ContactForm = () => {
   return (
     <div className="contact-form">
       <div className="contact-form-row">
-        <div className="contact-form-row-copy-item">
+        <div className="contact-form-row-copy-item ">
           <p className="primary lg">Let’s Craft Ads That Convert</p>
         </div>
-        <div className="contact-form-row-copy-item">
-          <p className="primary sm">&copy; 2025</p>
-        </div>
+        
       </div>
 
       <div className="contact-form-row">
@@ -56,7 +54,7 @@ const ContactForm = () => {
           </div>
 
           <div className="form-item">
-            <button className="btn">Send Message</button>
+            <button className="bt">Send Message</button>
           </div>
         </div>
       </div>
