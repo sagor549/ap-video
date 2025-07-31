@@ -83,7 +83,7 @@ const Home = () => {
             <h1>AdCraft by AP Agency
 </h1>
  <p className="hero-line">High-performance video ads for brands and creators.</p>
-            <Link to="#contact" className="butt">
+            <Link to="/contact" className="butt">
               Get Started
             </Link>
             <div className="hero-text">
