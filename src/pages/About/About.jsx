@@ -6,7 +6,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
 
 import ReactLenis from "lenis/react";
-import Transition from "../../components/Transition/Transition";
+
 
 const About = () => {
   return (
@@ -179,4 +179,4 @@ const About = () => {
   );
 };
 
-export default Transition(About);
+export default About;

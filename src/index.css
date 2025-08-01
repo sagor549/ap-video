@@ -1,4 +1,4 @@
-@import "./fonts.css";
+
 
 :root {
   
@@ -175,6 +175,7 @@ textarea::placeholder {
     font-size: 10vw;
     line-height: 8vw;
   }
+  
 
   h3 {
     font-size: 8vw;

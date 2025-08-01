@@ -12,7 +12,7 @@ import ReactLenis from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import Transition from "../../components/Transition/Transition";
+
 import PricingPackages from "../package/PricingPackages";
 
 const Home = () => {
@@ -80,8 +80,9 @@ const Home = () => {
           </div>
 
           <div className="hero-content">
-            <h1>AdCraft by AP Agency
+            <h1>AdCraft 
 </h1>
+<h3 className="hero-sub">BY AP AGENCY</h3>
  <p className="hero-line">High-performance video ads for brands and creators.</p>
             <Link to="/contact" className="butt">
               Get Started
@@ -91,16 +92,16 @@ const Home = () => {
               <p className="hero-highlight">We Give You 3 Ads That Hit Like Brass Knuckles.</p>
             </div>
             <div className="hero-bottom-text">
-              <p>Nobody watches 60-second ads anymore—they scroll.</p>
-              <p>So we make ads built to stop thumbs and start clicks.</p>
+              <p>Nobody watches 60-second ads anymore</p>
+              <p>That’s why we make short and creative ads that’ll make everyone stop scrolling and start clicking!!!</p>
             </div>
           </div>
         </section>
 
         {/* Results Section */}
         <section ref={resultsSectionRef} className="results-section demo">
-          <p className="small-text ">So we make ads built to stop thumbs and start clicks.</p>
-          <h3>No fluff. Just results.</h3>
+          <p className="small-text ">Engineered To Grab Attention And Drive Action In Seconds.</p>
+          <h3>No Fluff. Just Results.</h3>
         </section>
 
         {/* Reviews Section */}
@@ -149,4 +150,4 @@ const Home = () => {
   );
 };
 
-export default Transition(Home);
+export default Home;
