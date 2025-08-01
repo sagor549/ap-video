@@ -80,9 +80,12 @@ const Home = () => {
           </div>
 
           <div className="hero-content">
-            <h1>AdCraft 
+            <div>
+     <h1>AdCraft 
 </h1>
 <h3 className="hero-sub">BY AP AGENCY</h3>
+            </div>
+            
  <p className="hero-line">High-performance video ads for brands and creators.</p>
             <Link to="/contact" className="butt">
               Get Started

@@ -9,6 +9,7 @@ import ReactLenis from "lenis/react";
 
 
 const About = () => {
+  
   return (
     <ReactLenis root>
       <div className="page about">

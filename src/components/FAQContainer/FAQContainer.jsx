@@ -78,7 +78,7 @@ const FAQContainer = ({ title = true, fullWidth = false }) => {
       <div className={`faq-wrapper ${fullWidth ? "full-width" : "contained"}`}>
         {title && (
           <div className="faq-title">
-            <AnimatedCopy tag="h2" animateOnScroll={false} delay={1}>
+            <AnimatedCopy tag="h3" animateOnScroll={false} delay={1}>
               Frequently <br /> Asked Questions
             </AnimatedCopy>
           </div>
