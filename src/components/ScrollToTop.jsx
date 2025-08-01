@@ -11,7 +11,7 @@ const ScrollToTop = () => {
       // Use a timeout if you have route transitions/animations
       setTimeout(() => {
         lenis.scrollTo(0, { immediate: true });
-      }, 1400); // match delay if needed, or reduce
+      }, 1); // match delay if needed, or reduce
     }
   }, [pathname, lenis]);
 
