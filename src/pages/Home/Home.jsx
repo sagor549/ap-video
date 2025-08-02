@@ -12,7 +12,6 @@ import ReactLenis from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 import PricingPackages from "../package/PricingPackages";
 
 const Home = () => {
@@ -80,13 +79,12 @@ const Home = () => {
           </div>
 
           <div className="hero-content">
-            <div>
-     <h1>AdCraft 
-</h1>
-<h3 className="hero-sub">BY AP AGENCY</h3>
+            <div className="hero-title-wrapper">
+              <h1>AdCraft</h1>
+              <h3 className="hero-sub">BY <span>AP AGENCY</span></h3>
             </div>
             
- <p className="hero-line">High-performance video ads for brands and creators.</p>
+            <p className="hero-line">High-performance video ads for brands and creators.</p>
             <Link to="/contact" className="butt">
               Get Started
             </Link>
@@ -96,7 +94,7 @@ const Home = () => {
             </div>
             <div className="hero-bottom-text">
               <p>Nobody watches 60-second ads anymore</p>
-              <p>That’s why we make short and creative ads that’ll make everyone stop scrolling and start clicking!!!</p>
+              <p>That's why we make short and creative ads that'll make everyone stop scrolling and start clicking!!!</p>
             </div>
           </div>
         </section>

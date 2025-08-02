@@ -1,3 +1,4 @@
+/* About.css */
 .about-header {
   width: 100%;
   margin-top: 8em;
@@ -9,15 +10,13 @@
   left: 0.75vw;
   font-size: 14vw;
   letter-spacing: -0.02em;
-  line-height: 0.9; /* Adjusted for better 
-  spacing */
-  width:100%
-}
-h3{
-  text-transform:none;
- 
+  line-height: 0.9;
+  width: 100%;
 }
 
+h3 {
+  text-transform: none;
+}
 
 .about-hero {
   position: relative;
@@ -46,16 +45,20 @@ h3{
 }
 
 .about-me-copy-wrapper {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  text-transform: none; 
+  font-weight: normal;  
 }
 
 .about-me-copy-wrapper h3 {
   margin: 1em;
-  font-size: 3vw;
-  letter-spacing: -0.02em;
-  line-height: 3vw;
+  font-size: 2.5vw;
+  font-weight: normal;  
+  
+
+  text-transform: none; 
 }
 
 .services {
@@ -92,6 +95,7 @@ h3{
   position: relative;
   color: var(--bg);
   z-index: 1;
+  line-height: 1.2;
 }
 
 .services-col:nth-child(2) {
@@ -125,6 +129,17 @@ h3{
 .service-list-row {
   padding: 2em 0;
   border-top: 1px dashed var(--fg);
+}
+
+/* New styles for gold titles and larger descriptions */
+.gold-title {
+  color: #FFD700 !important;
+  font-weight: bold;
+}
+
+.service-desc {
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .about-banner-img {
@@ -173,11 +188,13 @@ h3{
 .fav-tools-list-row {
   display: flex;
   gap: 2em;
+  justify-content: center;
 }
 
 .fav-tool {
   position: relative;
   flex: 1;
+  max-width: 45%;
   padding: 1em;
   aspect-ratio: 5/2.5;
   display: flex;
@@ -202,6 +219,76 @@ h3{
 .fav-tool h4,
 .fav-tool p {
   color: var(--bg);
+}
+
+@media (max-width: 1000px) {
+  .about-header {
+    padding: 1.25em;
+  }
+  
+  .about-header h1 {
+    line-height: 0.95;
+  }
+
+  .about-hero,
+  .about-banner-img,
+  .fav-tools {
+    margin: 1.25em;
+  }
+
+  .about-me-copy {
+    padding: 4em 1.25em;
+  }
+
+  .about-me-copy-wrapper {
+    width: 100%;
+  }
+
+  .about-me-copy-wrapper h3 {
+    font-size: 6vw;
+    letter-spacing: -0.02em;
+    line-height: 6vw;
+  }
+
+  .fav-tools {
+    padding: 4em 1.25em 1.25em 1.25em;
+  }
+
+  .fav-tools-header p.secondary {
+    width: 100%;
+  }
+
+  .fav-tools-list-row {
+    flex-direction: column;
+    gap: 1.25em;
+  }
+
+  .fav-tool {
+    max-width: 100%;
+  }
+
+  .fav-tools-list {
+    gap: 1.25em;
+  }
+
+  .services {
+    flex-direction: column;
+    margin: 1.25em;
+    padding: 1.25em;
+  }
+
+  .services-col:nth-child(1) {
+    aspect-ratio: 5/3;
+  }
+
+  .service-list-row {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .service-desc {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 1000px) {

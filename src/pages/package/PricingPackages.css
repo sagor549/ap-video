@@ -4,9 +4,9 @@
   --background-light: #1a1a24;
   --text: #ffffff;
   --text-secondary: #b0b0c0;
-  --accent: #FFD700; /* Changed from #ff4d6d to gold */
-  --accent-secondary: #D4AF37; /* Changed to complementary gold shade */
-   overflow-x:hidden;
+  --accent: #FFD700;
+  --accent-secondary: #D4AF37;
+  overflow-x: hidden;
 }
 
 .pricing-packages {
@@ -66,6 +66,16 @@
   color: var(--text-secondary);
 }
 
+.pick-weapon {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* Packages Grid */
 .packages-grid {
   display: flex;
@@ -82,6 +92,7 @@
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   display: flex;
+  flex-wrap: wrap;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -102,6 +113,12 @@
 .card-right {
   flex: 0 0 45%;
   min-width: 45%;
+}
+
+.card-bottom {
+  width: 100%;
+  padding: 0 3rem 3rem 3rem;
+  order: 3; /* Ensure it comes last on mobile */
 }
 
 .card-header {
@@ -198,8 +215,6 @@
   background: rgba(0, 0, 0, 0.9);
   transform: scale(1.1);
 }
-
-
 
 .features-section {
   display: flex;
@@ -317,7 +332,7 @@
 }
 
 .ctabutt::before {
- 
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -326,20 +341,19 @@
   background: black;
   z-index: -1;
   transition: transform 0.5s ease;
-  transform: scaleX(1);
-  transform-origin: left;
-  color:white;
+  transform: scaleX(0);
+  transform-origin: right;
 }
 
 .ctabutt:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background: black;
   color: white;
 }
 
 .ctabutt:hover::before {
-  transform: scaleX(1.1);
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .ctabutt:hover svg {
@@ -438,6 +452,7 @@
   font-weight: 700;
 }
 
+/* Responsive Styles */
 @media (max-width: 1200px) {
   .package-card {
     flex-direction: column;
@@ -447,6 +462,11 @@
     flex: 1;
     min-width: 100%;
     height: auto;
+    order: 2; /* Video comes after content on mobile */
+  }
+  
+  .card-bottom {
+    order: 3; /* Comes after video */
   }
   
   .video-container {
@@ -464,17 +484,21 @@
     flex-direction: column;
     gap: 1.5rem;
   }
+  
   .ctabutt {
     padding: 1rem 1.5rem;
   }
 
-  
   .pricing-title {
     font-size: 2rem;
   }
   
   .pricing-subtitle {
     font-size: 1.2rem;
+  }
+  
+  .pick-weapon {
+    font-size: 1.8rem;
   }
   
   .recommendation {
@@ -489,6 +513,11 @@
 
   .pricing-subtitle {
     font-size: 1.1rem;
+  }
+  
+  .pick-weapon {
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
   
   .recommendation-grid {
@@ -511,9 +540,14 @@
     padding: 2rem;
   }
   
+  .card-bottom {
+    padding: 0 2rem 2rem 2rem;
+  }
+  
   .video-container {
     min-height: 300px;
   }
+  
   .video-control-play,
   .video-control-pause {
     width: 40px;

@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
   const videoId = `video-${pkg.title.replace(/\s+/g, '-')}`;
   
-  // Handle video play/pause when props change
   useEffect(() => {
     const video = document.getElementById(videoId);
     if (video) {
@@ -21,7 +20,7 @@ const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
 
   const handlePlayClick = () => {
     if (!isPlaying) {
-      pauseAllVideos(); // Pause all other videos first
+      pauseAllVideos();
     }
     togglePlay();
   };
@@ -65,19 +64,6 @@ const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
             </ul>
           </div>
         </div>
-        
-        <div className="guarantee-box">
-          <div className="guarantee-title">Performance Promise:</div>
-          <p>{pkg.guarantee}</p>
-        </div>
-        
-        <Link 
-          to="/contact" 
-          className="ctabutt"
-        >
-          Get {pkg.title.split(' ')[0]}
-          <MdArrowOutward size={20} />
-        </Link>
       </div>
       
       <div className="card-right">
@@ -102,6 +88,21 @@ const PackageCard = ({ pkg, isPlaying, togglePlay, pauseAllVideos }) => {
             {isPlaying ? <MdPauseCircle size={32} /> : <MdPlayCircle size={32} />}
           </button>
         </div>
+      </div>
+      
+      <div className="card-bottom">
+        <div className="guarantee-box">
+          <div className="guarantee-title">Performance Promise:</div>
+          <p>{pkg.guarantee}</p>
+        </div>
+        
+        <Link 
+          to="/contact" 
+          className="ctabutt"
+        >
+          Get {pkg.title.split(' ')[0]}
+          <MdArrowOutward size={20} />
+        </Link>
       </div>
     </div>
   );
@@ -199,8 +200,9 @@ const PricingPackages = () => {
             We don't sell videos. <span>We sell clicks.</span>
           </h2>
           <p className="pricing-subtitle">
-            You want leads? These are the ads that get them. Pick your weapon:
+            You want leads? These are the ads that get them.
           </p>
+          <p className="pick-weapon">Pick your weapon:</p>
         </div>
 
         <div className="packages-grid">
@@ -214,8 +216,6 @@ const PricingPackages = () => {
             />
           ))}
         </div>
-        
-        
       </div>
     </section>
   );

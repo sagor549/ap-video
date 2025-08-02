@@ -7,7 +7,6 @@ import Footer from "../../components/Footer/Footer";
 
 import ReactLenis from "lenis/react";
 
-
 const About = () => {
   
   return (
@@ -52,7 +51,7 @@ const About = () => {
             <div className="services-banner">
               <img src="/about/services-banner.jpg" alt="Creative production" />
             </div>
-            <p className="primary lg">What We Deliver</p>
+            <p className="primary lg">What<br />We<br />Deliver</p>
           </div>
           <div className="services-col">
             <h4>
@@ -62,10 +61,10 @@ const About = () => {
             <div className="services-list">
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Short Form Video Ads</h5>
+                  <h5 className="gold-title">Short Form Video Ads</h5>
                 </div>
                 <div className="service-list-col">
-                  <p>
+                  <p className="service-desc">
                     Twelve to sixteen second ads engineered for platforms like TikTok, Meta, and YouTube Shorts. Built to capture attention fast and drive measurable results.
                   </p>
                 </div>
@@ -73,10 +72,10 @@ const About = () => {
 
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Creative Direction</h5>
+                  <h5 className="gold-title">Creative Direction</h5>
                 </div>
                 <div className="service-list-col">
-                  <p>
+                  <p className="service-desc">
                     From concept and scripting to production and editing, we shape every creative detail to spark engagement and strengthen brand impact.
                   </p>
                 </div>
@@ -84,10 +83,10 @@ const About = () => {
 
               <div className="service-list-row">
                 <div className="service-list-col">
-                  <h5>Post Production</h5>
+                  <h5 className="gold-title">Post Production</h5>
                 </div>
                 <div className="service-list-col">
-                  <p>
+                  <p className="service-desc">
                     Polished edits, refined color grading, immersive sound design, and dynamic motion graphics — all combined to create content that stops the scroll.
                   </p>
                 </div>
@@ -116,21 +115,12 @@ const About = () => {
               className="secondary"
               delay={0.5}
             >
-              From Blackmagic cameras to DaVinci Resolve, Premiere Pro, and
-              Frame.io — we use industry-leading tools to deliver high-quality
-              ads, fast.
+              We use Adobe Premiere Pro for video editing and Adobe After Effects for motion graphics and visual effects to deliver high-quality ads, fast.
             </AnimatedCopy>
           </div>
 
           <div className="fav-tools-list">
             <div className="fav-tools-list-row">
-              <div className="fav-tool">
-                <div className="fav-tool-img">
-                  <img src="/work/davi.jpg" alt="DaVinci Resolve" />
-                </div>
-                <h4>DaVinci Resolve</h4>
-                <p className="primary sm">Color Grading</p>
-              </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
                   <img src="/work/adobe.jpg" alt="Adobe Premiere Pro" />
@@ -140,33 +130,10 @@ const About = () => {
               </div>
               <div className="fav-tool">
                 <div className="fav-tool-img">
-                  <img src="/work/black.jpg" alt="Blackmagic Pocket" />
+                  <img src="/work/after.jpg" alt="Adobe After Effects" />
                 </div>
-                <h4>Blackmagic Pocket</h4>
-                <p className="primary sm">Cinematic Shooting</p>
-              </div>
-            </div>
-            <div className="fav-tools-list-row">
-              <div className="fav-tool">
-                <div className="fav-tool-img">
-                  <img src="/work/shot.jpg" alt="ShotDeck" />
-                </div>
-                <h4>ShotDeck</h4>
-                <p className="primary sm">Visual References</p>
-              </div>
-              <div className="fav-tool">
-                <div className="fav-tool-img">
-                  <img src="/work/may.png" alt="Frame.io" />
-                </div>
-                <h4>Frame.io</h4>
-                <p className="primary sm">Remote Collaboration</p>
-              </div>
-              <div className="fav-tool">
-                <div className="fav-tool-img">
-                  <img src="/work/celtx.jpg" alt="Celtx" />
-                </div>
-                <h4>Celtx</h4>
-                <p className="primary sm">Scriptwriting Tool</p>
+                <h4>Adobe After Effects</h4>
+                <p className="primary sm">Motion Graphics & Visual Effects</p>
               </div>
             </div>
           </div>
